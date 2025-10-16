@@ -1,0 +1,654 @@
+/* Responsivo */
+
+/* General responsive rules */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Media queries for Container */
+@media (max-width: 768px) {}
+
+@media (max-width: 480px) {}
+
+/* Media queries for Hero */
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 0 80px;
+    min-height: 500px;
+  }
+
+  .hero-inner {
+    gap: 32px;
+  }
+
+  .hero-title {
+    font-size: 38px;
+    margin-top: 32px;
+  }
+
+  .hero-sub {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px 0 60px;
+    min-height: 400px;
+  }
+
+  .hero-inner {
+    gap: 24px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+  }
+}
+
+/* Media queries for Header */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 16px 0;
+  }
+
+  .header-inner {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    padding: 12px 0;
+  }
+
+  .brand .logo img {
+    width: 100px;
+    height: 74px;
+  }
+
+  .main-nav {
+    display: none;
+  }
+}
+
+/* Ensure gallery images use 16:9 on mobile */
+@media (max-width: 600px) {
+
+  .carousel-inner,
+  .spots-carousel .carousel-inner {
+    height: auto !important;
+  }
+
+  .carousel-image,
+  .spots-carousel .carousel-image {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16;
+    /* portrait story format */
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* Media queries for Search */
+@media (max-width: 1024px) {
+  .search-bar {
+    max-width: 800px;
+    padding: 18px 20px;
+    margin: 0 20px;
+  }
+
+  .search-row {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    max-width: 100%;
+    padding: 16px 18px;
+    border-radius: 12px;
+    margin: 0 16px;
+  }
+
+  .search-row {
+    gap: 10px;
+  }
+
+  .search-row .field {
+    min-width: 120px;
+    flex: 1;
+  }
+
+  .search-row input,
+  .search-row select {
+    padding: 10px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+
+  .btn-search {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-left: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-bar {
+    padding: 16px;
+    border-radius: 12px;
+    margin: 0 12px;
+  }
+
+  .search-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .search-row .field {
+    flex: none;
+    min-width: unset;
+  }
+
+  .search-row input,
+  .search-row select {
+    padding: 14px 16px;
+    font-size: 16px;
+    /* Melhor para toque */
+    border-radius: 8px;
+  }
+
+  .btn-search {
+    width: 100%;
+    height: 56px;
+    border-radius: 8px;
+    font-size: 18px;
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    padding: 14px;
+    border-radius: 10px;
+    margin: 0 8px;
+  }
+
+  .search-row {
+    gap: 14px;
+  }
+
+  .search-row input,
+  .search-row select {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+
+  .btn-search {
+    height: 56px;
+    font-size: 18px;
+  }
+}
+
+/* Media queries for Rooms */
+@media (max-width: 1024px) {
+  .room-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .rooms {
+    padding: 60px 0;
+    margin: 0 16px;
+  }
+
+  .rooms-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .rooms-header h2 {
+    font-size: 32px;
+    text-align: left;
+  }
+
+  .rooms-header p {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .room-list {
+    gap: 24px;
+  }
+
+  .room-media img {
+    height: 250px;
+  }
+
+  .room-body {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .room-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Media queries for Amenities */
+@media (max-width: 768px) {
+  .amenities {
+    padding: 0;
+  }
+
+  .amenities-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+    margin: 0 16px;
+    padding-bottom: 24px;
+  }
+
+  .amenities-intro p {
+    text-align: right;
+  }
+
+  .amenities-title h2 {
+    text-align: center;
+  }
+
+  .amenities-grid {
+    gap: 2rem;
+  }
+
+  .amenity-item {
+    width: 100%;
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 30%);
+    gap: 64px;
+    justify-content: center;
+    margin: 0 16px;
+  }
+
+  .amenity-item {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+/* Media queries for About */
+@media (max-width: 1024px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 60px 0;
+  }
+
+  .about-inner {
+    gap: 32px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .about-content .btn {
+    align-self: center;
+  }
+}
+
+/* Media queries for Location */
+@media (max-width: 1024px) {
+  .location-header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .location-title h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .location {
+    padding: 60px 0;
+  }
+
+  .location-header {
+    gap: 32px;
+  }
+
+  .location-title h2 {
+    font-size: 32px;
+  }
+
+  .location-title p {
+    text-align: center;
+  }
+}
+
+/* Media queries for House Rules */
+@media (max-width: 900px) {
+  .rules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .rules-header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .rules-title h2 {
+    text-align: end;
+  }
+
+  .rules-title h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 40%);
+    justify-content: space-between;
+  }
+
+  .rules-intro p {
+    text-align: right;
+  }
+}
+
+@media (max-width: 768px) {
+  .house-rules {
+    padding: 60px 0;
+  }
+
+  .rules-header {
+    gap: 32px;
+  }
+
+  .rules-title h2 {
+    font-size: 32px;
+  }
+}
+
+/* Media queries for Reviews */
+@media (max-width: 1024px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ratings-breakdown {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews {
+    padding: 60px 0;
+  }
+
+  .reviews-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .reviews-header h2 {
+    font-size: 32px;
+  }
+
+  .reviews-header p {
+    padding-left: 0;
+    text-align: left;
+  }
+
+  .reviews-summary {
+    flex-direction: column;
+    gap: 24px;
+    text-align: flex-start;
+  }
+
+  .review-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Media queries for Gallery */
+@media (max-width: 768px) {
+  .gallery {
+    padding: 60px 0;
+  }
+
+  .gallery-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .gallery-header h2 {
+    font-size: 32px;
+  }
+
+  .gallery-header p {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .carousel-inner {
+    height: 350px;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-inner {
+    height: 280px;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+/* Media queries for Tourist Spots */
+@media (max-width: 768px) {
+  .spots-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .spots-header h2 {
+    font-size: 32px;
+    text-align: left;
+  }
+
+  .spots-header p {
+    padding-left: 0;
+    text-align: left;
+  }
+
+  .spots-carousel .carousel-inner {
+    height: 350px;
+  }
+
+  .spots-carousel .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .spot-overlay {
+    padding: 30px 15px 15px;
+  }
+
+  .spot-overlay h3 {
+    font-size: 20px;
+  }
+
+  .spot-overlay p {
+    font-size: 14px;
+  }
+
+  .tourist-spots {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .spots-carousel .carousel-inner {
+    height: 280px;
+  }
+
+  .spots-carousel .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+/* Media queries for CTA */
+@media (max-width: 768px) {
+  .cta-content {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-section-container {
+    padding: 3rem 1rem;
+    margin: 1rem;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .cta-description {
+    font-size: 1rem;
+  }
+}
+
+/* Media queries for Footer */
+@media (min-width: 640px) {
+  .footer {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .footer-grid {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .footer-logo-section {
+    grid-column: span 2 / span 2;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+  }
+
+  .footer-legal-links {
+    margin-top: 0;
+  }
+}
