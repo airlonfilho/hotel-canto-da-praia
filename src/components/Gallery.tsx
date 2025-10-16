@@ -71,7 +71,7 @@ const Gallery: React.FC = () => {
 
     const onPointerUp = (e: React.PointerEvent) => {
         const delta = dragDeltaRef.current || (e.clientX - (touchStartXRef.current ?? e.clientX));
-        const thresh = 50; 
+        const thresh = 50;  
         if (Math.abs(delta) > thresh) {
             if (delta > 0) prevSlide();
             else nextSlide();

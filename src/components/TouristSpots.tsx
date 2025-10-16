@@ -18,7 +18,7 @@ const TouristSpots: React.FC = () => {
     {
       id: 3,
       name: 'Praia do Calhau',
-      description: 'Uma das praias mais bonitas do Maranhão, com águas cristalinas e coqueiros.',
+      description: 'Praia localizada na Av. Litorânea com bares e restaurantes estruturados cuja especialidade são os pratos à base de frutos do mar.',
       image: '/images/praia-calhau.png'
     },
     {
@@ -36,7 +36,7 @@ const TouristSpots: React.FC = () => {
     {
       id: 6,
       name: 'Convento das Mercês',
-      description: 'Complexo religioso histórico com belos azulejos e vistas para a cidade.',
+      description: 'Complexo religioso histórico.',
       image: '/images/convento-merces.jpg'
     },
   ];

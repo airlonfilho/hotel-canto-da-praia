@@ -67,7 +67,7 @@ const About: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              Nosso hotel conta com 32 quartos pensados para receber você, sua família ou amigos da melhor forma possível. Seja para um final de semana tranquilo, férias com a galera toda e viagens a trabalho. A gente tem o espaço ideal para você
+              Nosso hotel conta com 32 quartos pensados para receber você, sua família ou amigos da melhor forma possível. Seja para um final de semana tranquilo, férias com a galera toda e viagens a trabalho. A gente tem o espaço ideal para você.
             </motion.p>
 
             <motion.p
