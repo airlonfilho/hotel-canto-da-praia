@@ -5,6 +5,8 @@ import type { AppProps } from 'next/app';
 import { Montserrat } from 'next/font/google';
 import { AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
+import { useState, useEffect } from 'react';
+import Loader from '../components/Loader';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -12,6 +14,28 @@ const montserrat = Montserrat({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simula o carregamento da página
+    const handleLoad = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500); // Mostra o loader por pelo menos 1.5s
+    };
+
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <>
       <Head>
