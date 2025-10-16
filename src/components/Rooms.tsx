@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const BedIcon = () => (
@@ -19,28 +19,44 @@ const UserIcon = () => (
 );
 
 const Rooms: React.FC = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const roomOptions = [
         {
             id: 1,
             name: 'Quarto Duplo Solteiro',
-            description: 'Perfeito para quem viaja com amigos ou em família. Dois confortos, um só ambiente aconchegante.',
-            image: '/images/quarto_duplo.jpg',
+            description: 'Para quem viaja a trabalho, com amigos ou em família. Duas camas confortáveis em um ambiente aconchegante.',
+            imageDesktop: '/images/quarto_duplo_h.jpg',
+            imageMobile: '/images/quarto_duplo_v.jpg',
             beds: 2,
             persons: 2,
         },
         {
             id: 2,
             name: 'Quarto Casal',
-            description: 'Perfeito para quem viaja com amigos ou em família. Dois confortos, um só ambiente aconchegante.',
-            image: '/images/quarto_casal.jpg',
+            description: 'Para quem viaja a trabalho, com amigos ou em família. Uma cama de casal em um ambiente aconchegante.',
+            imageDesktop: '/images/quarto_casal_h.jpg',
+            imageMobile: '/images/quarto_casal_v.jpg',
             beds: 1,
             persons: 2,
         },
         {
             id: 3,
             name: 'Quarto Triplo',
-            description: 'Perfeito para quem viaja com amigos ou em família. Dois confortos, um só ambiente aconchegante.',
-            image: '/images/quarto_triplo.jpg',
+            description: 'Para quem viaja a trabalho, com amigos ou em família. Três camas confortáveis em um ambiente aconchegante.',
+            imageDesktop: '/images/quarto_triplo_h.jpg',
+            imageMobile: '/images/quarto-triplo_v.jpg',
             beds: 3,
             persons: 3,
         },
@@ -101,7 +117,10 @@ const Rooms: React.FC = () => {
                         transition={{ duration: 0.3 }}
                     >
                         <div className="room-media">
-                            <img src={room.image} alt={room.name} />
+                            <img 
+                                src={isMobile ? room.imageMobile : room.imageDesktop} 
+                                alt={room.name} 
+                            />
                         </div>
                         <div className="room-body">
                             <h3>{room.name}</h3>
@@ -117,7 +136,6 @@ const Rooms: React.FC = () => {
                                 </div>
                             </div>
                                 {
-                                    // criar URL do whatsapp específica para cada quarto
                                 }
                                 <motion.a
                                     className="btn btn-primary btn-animated"

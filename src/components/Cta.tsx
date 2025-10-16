@@ -15,7 +15,7 @@ export function Cta() {
     >
       <div className="cta-background">
         <Image
-          src="/images/psicina.png"
+          src="/images/piscina_h.jpg"
           alt="Piscina do Hotel Canto da Praia"
           fill
           style={{ objectFit: 'cover' }}

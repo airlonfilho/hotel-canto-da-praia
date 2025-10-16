@@ -9,14 +9,11 @@ const Hero: React.FC = () => {
         hospedes: '1 Hóspede'
     });
 
-    // Definir data mínima como hoje
     const today = new Date().toISOString().split('T')[0];
 
     useEffect(() => {
-        // Definir check-in como hoje por padrão
         const checkInDefault = today;
 
-        // Definir check-out como amanhã
         const checkOutDefault = new Date();
         checkOutDefault.setDate(checkOutDefault.getDate() + 1);
         const checkOutDefaultStr = checkOutDefault.toISOString().split('T')[0];
@@ -34,7 +31,6 @@ const Hero: React.FC = () => {
             [field]: value
         }));
 
-        // Se mudou check-in, ajustar check-out se necessário
         if (field === 'checkIn' && value) {
             const checkInDate = new Date(value);
             const currentCheckOut = new Date(formData.checkOut);
@@ -63,7 +59,6 @@ const Hero: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Validar se todas as datas estão preenchidas
         if (!formData.checkIn || !formData.checkOut) {
             alert('Por favor, selecione as datas de check-in e check-out.');
             return;
@@ -77,7 +72,6 @@ const Hero: React.FC = () => {
             return;
         }
 
-        // Criar mensagem para WhatsApp
         const mensagem = `Olá! Gostaria de fazer uma reserva no Hotel Canto da Praia.
 
 📋 *Detalhes da Reserva:*
@@ -88,10 +82,8 @@ const Hero: React.FC = () => {
 
 Aguardo confirmação da disponibilidade. Obrigado!`;
 
-        // Codificar a mensagem para URL
         const mensagemEncoded = encodeURIComponent(mensagem);
 
-        // Abrir WhatsApp com a mensagem
         const whatsappUrl = `https://wa.me/559832485807?text=${mensagemEncoded}`;
         window.open(whatsappUrl, '_blank');
     };

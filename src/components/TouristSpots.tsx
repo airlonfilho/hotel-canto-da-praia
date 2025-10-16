@@ -5,21 +5,21 @@ const TouristSpots: React.FC = () => {
   const spots = [
     {
       id: 1,
+      name: 'Passeio da Raposa',
+      description: 'Passeio tranquilo pelo rio, com paradas em ilhas, praias desertas e dunas semelhantes aos Lençóis Maranhenses.',
+      image: '/images/passeio-raposa.jpg'
+    },
+    {
+      id: 2,
       name: 'Centro Histórico de São Luís',
       description: 'Patrimônio Mundial da UNESCO, com arquitetura colonial portuguesa e ruas de pedra.',
       image: '/images/centro-historico.png'
     },
     {
-      id: 2,
+      id: 3,
       name: 'Praia do Calhau',
       description: 'Uma das praias mais bonitas do Maranhão, com águas cristalinas e coqueiros.',
       image: '/images/praia-calhau.png'
-    },
-    {
-      id: 3,
-      name: 'Praia de São Marcos',
-      description: 'Praia paradisíaca com dunas, lagoas e vilarejos charmosos.',
-      image: '/images/praia-sao-marcos.png'
     },
     {
       id: 4,

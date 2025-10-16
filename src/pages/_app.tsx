@@ -17,11 +17,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simula o carregamento da página
     const handleLoad = () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 1500); // Mostra o loader por pelo menos 1.5s
+      }, 1500);
     };
 
     if (document.readyState === 'complete') {
