@@ -29,7 +29,15 @@ body {
   line-height: 1.5;
   color: #0b2330;
   background: #fff;
+}
+
+html {
   overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 h1,
@@ -850,7 +858,6 @@ ul {
 }
 
 /* House Rules Section */
-/* House Rules Section */
 .house-rules {
   padding: 80px 0;
   background: #f8f9fa;
@@ -864,20 +871,20 @@ ul {
   flex-direction: row-reverse;
 }
 
-.rules-header .amenities-title h2 {
+.rules-header h2 {
   font-size: 36px;
   font-weight: 700;
   color: var(--primary);
   position: relative;
   padding-bottom: 12px;
-  text-align: left;
+  text-align: right;
 }
 
-.rules-header .amenities-title h2::after {
+.rules-header h2::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
+  right: 0;
   width: 60px;
   height: 4px;
   background: var(--primary);
@@ -887,7 +894,7 @@ ul {
   font-size: 16px;
   line-height: 1.7;
   color: #343a40;
-  text-align: right;
+  text-align: left;
   max-width: 500px;
 }
 

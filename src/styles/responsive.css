@@ -2,29 +2,63 @@
 
 /* General responsive rules */
 @media (max-width: 768px) {
-  html {
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  body {
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
-    height: auto;
-    min-height: 100%;
-  }
-
   * {
     -webkit-tap-highlight-color: transparent;
   }
 
+  html {
+    overflow-x: hidden;
+    overflow-y: scroll !important;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+    position: relative;
+  }
+
+  body {
+    overflow-x: hidden;
+    overflow-y: scroll !important;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+
+  /* Desabilitar transformações pesadas no mobile */
   .search-bar {
-    backdrop-filter: none;
+    backdrop-filter: none !important;
+    will-change: auto !important;
+    transform: none !important;
+  }
+
+  /* Simplificar animações no mobile */
+  .hover-lift:hover {
+    transform: none !important;
+  }
+
+  .room-card:hover {
+    transform: none !important;
+  }
+
+  /* Garantir que motion elements não bloqueiem scroll */
+  [class*="motion"] {
+    pointer-events: auto !important;
+  }
+
+  /* Garantir que elementos com animações não bloqueiem o scroll */
+  section {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
     will-change: auto;
+  }
+
+  /* Corrigir hero no mobile */
+  .hero {
+    min-height: auto !important;
+    padding: 120px 0 80px;
+  }
+
+  .hero-inner {
+    gap: 40px;
   }
 
   h1 {
@@ -427,17 +461,13 @@
 
 @media (max-width: 600px) {
   .rules-header {
+    flex-direction: column;
     grid-template-columns: 1fr;
-    text-align: center;
+    align-items: end;
   }
 
   .rules-title h2 {
     text-align: end;
-  }
-
-  .rules-title h2::after {
-    left: 50%;
-    transform: translateX(-50%);
   }
 
   .rules-grid {
