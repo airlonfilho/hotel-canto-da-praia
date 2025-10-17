@@ -2,6 +2,31 @@
 
 /* General responsive rules */
 @media (max-width: 768px) {
+  html {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    height: auto;
+    min-height: 100%;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .search-bar {
+    backdrop-filter: none;
+    will-change: auto;
+  }
+
   h1 {
     font-size: 2rem;
   }

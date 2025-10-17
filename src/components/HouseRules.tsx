@@ -62,7 +62,7 @@ const HouseRules = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="amenities-title">
+          <div className="rules-title">
             <h2>Regras da casa</h2>
           </div>
           <div className="rules-intro">
