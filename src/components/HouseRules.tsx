@@ -50,7 +50,9 @@ const HouseRules = () => {
       className="house-rules"
       id="house-rules"
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 0.8 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
     >
       <div className="container">
         <motion.div

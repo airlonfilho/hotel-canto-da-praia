@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Header: React.FC = () => {
     const mensagem = 'Olá, vim pelo site e gostaria de realizar uma reserva';
-    const whatsappUrl = `https://wa.me/559832485807?text=${encodeURIComponent(mensagem)}`;
+    const whatsappUrl = `https://wa.me/559884151367?text=${encodeURIComponent(mensagem)}`;
 
     return (
         <header className="site-header">

@@ -116,7 +116,7 @@ const Rooms: React.FC = () => {
                         whileHover={{ y: -10 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <div className="room-media">
+                        <div className={`room-media ${room.id === 1 ? 'room-duplo' : ''} ${room.id === 2 ? 'room-casal' : ''}`}>
                             <img 
                                 src={isMobile ? room.imageMobile : room.imageDesktop} 
                                 alt={room.name} 
@@ -139,7 +139,7 @@ const Rooms: React.FC = () => {
                                 }
                                 <motion.a
                                     className="btn btn-primary btn-animated"
-                                    href={`https://wa.me/559832485807?text=${encodeURIComponent(`Olá, vim pelo site e gostaria de reservar o ${room.name}`)}`}
+                                    href={`https://wa.me/559884151367?text=${encodeURIComponent(`Olá, vim pelo site e gostaria de reservar o ${room.name}`)}`}
                                     style={{ borderRadius: '999px', padding: '10px 20px' }}
                                     target="_blank"
                                     rel="noopener noreferrer"

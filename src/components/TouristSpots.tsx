@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const TouristSpots: React.FC = () => {
   const spots = [
@@ -79,12 +80,13 @@ const TouristSpots: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <motion.button
+          <button
             className="carousel-btn prev"
             onClick={prevSlide}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >&lt;</motion.button>
+            aria-label="Ponto turístico anterior"
+          >
+            <Image src="/icons/arrow-left.svg" alt="" width={24} height={24} />
+          </button>
           <div className="carousel-inner">
             <motion.img
               key={currentIndex}
@@ -106,12 +108,13 @@ const TouristSpots: React.FC = () => {
               <p>{spots[currentIndex].description}</p>
             </motion.div>
           </div>
-          <motion.button
+          <button
             className="carousel-btn next"
             onClick={nextSlide}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >&gt;</motion.button>
+            aria-label="Próximo ponto turístico"
+          >
+            <Image src="/icons/arrow-right.svg" alt="" width={24} height={24} />
+          </button>
         </motion.div>
 
         <motion.div

@@ -6,7 +6,8 @@ const Hero: React.FC = () => {
         acomodacao: 'Quarto Solteiro',
         checkIn: '',
         checkOut: '',
-        hospedes: '1 Hóspede'
+        adultos: '1',
+        criancas: '0'
     });
 
     const today = new Date().toISOString().split('T')[0];
@@ -72,19 +73,25 @@ const Hero: React.FC = () => {
             return;
         }
 
+        const adultos = parseInt(formData.adultos);
+        const criancas = parseInt(formData.criancas);
+        const totalHospedes = adultos + criancas;
+
         const mensagem = `Olá! Gostaria de fazer uma reserva no Hotel Canto da Praia.
 
 📋 *Detalhes da Reserva:*
 🏨 Acomodação: ${formData.acomodacao}
 📅 Check-in: ${formatDate(formData.checkIn)}
 📅 Check-out: ${formatDate(formData.checkOut)}
-👥 Hóspedes: ${formData.hospedes}
+👥 Adultos: ${adultos} ${adultos === 1 ? 'pessoa' : 'pessoas'}
+👶 Crianças (até 5 anos): ${criancas} ${criancas === 1 ? 'criança' : 'crianças'}
+📊 Total de hóspedes: ${totalHospedes}
 
 Aguardo confirmação da disponibilidade. Obrigado!`;
 
         const mensagemEncoded = encodeURIComponent(mensagem);
 
-        const whatsappUrl = `https://wa.me/559832485807?text=${mensagemEncoded}`;
+        const whatsappUrl = `https://wa.me/559884151367?text=${mensagemEncoded}`;
         window.open(whatsappUrl, '_blank');
     };
 
@@ -146,18 +153,44 @@ Aguardo confirmação da disponibilidade. Obrigado!`;
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 1.1 }}
                         >
-                            <label>Hóspedes</label>
+                            <label>Adultos</label>
                             <select
-                                value={formData.hospedes}
-                                onChange={(e) => handleInputChange('hospedes', e.target.value)}
+                                value={formData.adultos}
+                                onChange={(e) => handleInputChange('adultos', e.target.value)}
                             >
-                                <option>1 Hóspede</option>
-                                <option>2 Hóspedes</option>
-                                <option>3 Hóspedes</option>
-                                <option>4 Hóspedes</option>
-                                <option>5 Hóspedes</option>
-                                <option>6 Hóspedes</option>
+                                <option value="1">1 Adulto</option>
+                                <option value="2">2 Adultos</option>
+                                <option value="3">3 Adultos</option>
+                                <option value="4">4 Adultos</option>
+                                <option value="5">5 Adultos</option>
+                                <option value="6">6 Adultos</option>
                             </select>
+                        </motion.div>
+                        <motion.div
+                            className="field"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: 1.15 }}
+                        >
+                            <label>Crianças (até 5 anos)</label>
+                            <select
+                                value={formData.criancas}
+                                onChange={(e) => handleInputChange('criancas', e.target.value)}
+                            >
+                                <option value="0">0 Crianças</option>
+                                <option value="1">1 Criança</option>
+                                <option value="2">2 Crianças</option>
+                                <option value="3">3 Crianças</option>
+                                <option value="4">4 Crianças</option>
+                            </select>
+                            <motion.p
+                                className="hero-notice"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.8, delay: 1.5 }}
+                            >
+                                ℹ️ Crianças até 5 anos não pagam
+                            </motion.p>
                         </motion.div>
                         <motion.div
                             className="field"

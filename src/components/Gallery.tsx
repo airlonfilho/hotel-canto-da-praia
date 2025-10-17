@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Gallery: React.FC = () => {
     const imagesPairs = [
@@ -14,7 +15,6 @@ const Gallery: React.FC = () => {
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isInteracting, setIsInteracting] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
     const touchStartXRef = useRef<number | null>(null);
@@ -45,19 +45,9 @@ const Gallery: React.FC = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + imagesPairs.length) % imagesPairs.length);
     };
 
-    useEffect(() => {
-        if (isInteracting) return;
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % imagesPairs.length);
-        }, 3500);
-
-        return () => clearInterval(interval);
-    }, [isInteracting, imagesPairs.length]);
-
     const onPointerDown = (e: React.PointerEvent) => {
         touchStartXRef.current = e.clientX;
         dragDeltaRef.current = 0;
-        setIsInteracting(true);
         try {
             (e.target as Element).setPointerCapture(e.pointerId);
         } catch (err) {
@@ -78,7 +68,6 @@ const Gallery: React.FC = () => {
         }
         touchStartXRef.current = null;
         dragDeltaRef.current = 0;
-        setIsInteracting(false);
         try {
             (e.target as Element).releasePointerCapture(e.pointerId);
         } catch (err) {
@@ -116,12 +105,13 @@ const Gallery: React.FC = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    <motion.button
+                    <button
                         className="carousel-btn prev"
                         onClick={prevSlide}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                    >&lt;</motion.button>
+                        aria-label="Imagem anterior"
+                    >
+                        <Image src="/icons/arrow-left.svg" alt="" width={24} height={24} />
+                    </button>
                     <div
                         className="carousel-inner"
                         onPointerDown={onPointerDown}
@@ -140,12 +130,13 @@ const Gallery: React.FC = () => {
                             transition={{ duration: 0.5 }}
                         />
                     </div>
-                    <motion.button
+                    <button
                         className="carousel-btn next"
                         onClick={nextSlide}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                    >&gt;</motion.button>
+                        aria-label="Próxima imagem"
+                    >
+                        <Image src="/icons/arrow-right.svg" alt="" width={24} height={24} />
+                    </button>
                 </motion.div>
                 <motion.div
                     className="carousel-indicators"

@@ -145,6 +145,7 @@
   .search-bar {
     max-width: 100%;
     padding: 16px 18px;
+    padding-bottom: 16px;
     border-radius: 12px;
     margin: 0 16px;
   }
@@ -156,6 +157,12 @@
   .search-row .field {
     min-width: 120px;
     flex: 1;
+  }
+
+  .hero-notice {
+    position: relative;
+    bottom: auto;
+    margin-top: 8px;
   }
 
   .search-row input,

@@ -80,7 +80,7 @@ const Footer = () => {
             <h3>Redes Sociais</h3>
             <ul>
               <li>
-                <a href="https://wa.me/559832485807">Whatsapp</a>
+                <a href="https://wa.me/559884151367">Whatsapp</a>
               </li>
               <li>
                 <a href="https://www.instagram.com/hotelcantodapraia_">Instagram</a>
