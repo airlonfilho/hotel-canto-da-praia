@@ -5,6 +5,8 @@ import Image from 'next/image';
 const Gallery: React.FC = () => {
     const imagesPairs = [
         { desktop: '/images/frente_h.jpg', mobile: '/images/frente_v.jpg', alt: 'Fachada do Hotel' },
+        { desktop: '/images/hall.jpg', mobile: '/images/hall.jpg', alt: 'Hall' },
+        { desktop: '/images/elevador.jpg', mobile: '/images/elevador.jpg', alt: 'Elevador' },
         { desktop: '/images/cafe_h.JPG', mobile: '/images/cafe_v.jpg', alt: 'Café da Manhã' },
         { desktop: '/images/piscina_h.jpg', mobile: '/images/piscina_v.jpg', alt: 'Piscina' },
         { desktop: '/images/quarto_casal_h.jpg', mobile: '/images/quarto_casal_v.jpg', alt: 'Quarto Casal' },
@@ -24,16 +26,16 @@ const Gallery: React.FC = () => {
         const checkMobile = () => {
             setIsMobile(window.innerWidth <= 768);
         };
-        
+
         checkMobile();
         window.addEventListener('resize', checkMobile);
-        
+
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
     const getCurrentImage = () => {
-        return isMobile 
-            ? imagesPairs[currentIndex].mobile 
+        return isMobile
+            ? imagesPairs[currentIndex].mobile
             : imagesPairs[currentIndex].desktop;
     };
 
@@ -61,7 +63,7 @@ const Gallery: React.FC = () => {
 
     const onPointerUp = (e: React.PointerEvent) => {
         const delta = dragDeltaRef.current || (e.clientX - (touchStartXRef.current ?? e.clientX));
-        const thresh = 50;  
+        const thresh = 50;
         if (Math.abs(delta) > thresh) {
             if (delta > 0) prevSlide();
             else nextSlide();
